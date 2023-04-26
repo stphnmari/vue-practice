@@ -42,7 +42,7 @@ class TodoController extends Controller
         Todo::create($request->all());
          
         return redirect()->route('todolist.index')
-                        ->with('success','List is successfully created');
+                        ->with('success','Task is successfully created');
     }
   
     /**
@@ -77,17 +77,19 @@ class TodoController extends Controller
         $todo->update($request->all());
         
         return redirect()->route('todolist.index')
-                        ->with('success','List is successfully updated ');
+                        ->with('success','Task is successfully updated ');
     }
   
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Todo $todo): RedirectResponse
+    public function destroy($id): RedirectResponse
     {
+        $todo = Todo::find($id);
         $todo->delete();
-         
+        
         return redirect()->route('todolist.index')
-                        ->with('success','A list is deleted successfully');
+                        ->with('success','A Task is deleted successfully');
+        
     }
 }
