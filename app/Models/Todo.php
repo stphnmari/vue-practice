@@ -12,4 +12,5 @@ class Todo extends Model
         'description',
         'date',
     ];
+
 }

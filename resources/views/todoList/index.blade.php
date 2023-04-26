@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h1>TODO LIST</h1>
+                <h1>TODO LISTS</h1>
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('todolist.create') }}"> Create New Task</a>

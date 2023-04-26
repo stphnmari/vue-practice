@@ -42,24 +42,27 @@ class TodoController extends Controller
         Todo::create($request->all());
          
         return redirect()->route('todolist.index')
-                        ->with('success','List is created successfully.');
+                        ->with('success','List is successfully created');
     }
   
     /**
      * Display the specified resource.
      */
-    public function show(Todo $todo): View
-    {
-        return view('todolist.show',compact('todo'));
-    }
-  
+   public function show($id)
+{
+    $todo = Todo::find($id);
+    return view('todolist.show', compact('todo'));
+}
+
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Todo $todo): View
+    public function edit($id)
     {
-        return view('todolist.edit',compact('todo'));
+        $todo = Todo::find($id);
+        return view('todolist.edit', compact('todo'));
     }
+    
   
     /**
      * Update the specified resource in storage.
@@ -74,7 +77,7 @@ class TodoController extends Controller
         $todo->update($request->all());
         
         return redirect()->route('todolist.index')
-                        ->with('success','List was updated successfully');
+                        ->with('success','List is successfully updated ');
     }
   
     /**
